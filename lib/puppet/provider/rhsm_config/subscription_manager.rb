@@ -170,5 +170,4 @@ Puppet::Type.type(:rhsm_config).provide(:subscription_manager) do
         params
       end
     end
-
 end
