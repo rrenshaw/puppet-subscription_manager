@@ -71,7 +71,7 @@ describe described_class, 'type' do
     namevar = :hostname
     if 'should accept hostnames containing numbers' do
       @resource = described_class(new
-        hostname => 'f00')
+        :hostname => 'f00')
       expect(@resource[namevar]).to eq('f00')
       expect(@resource[:hostname]).to eq('f00')
     end
