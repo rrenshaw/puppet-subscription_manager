@@ -61,12 +61,6 @@ describe described_class, 'type' do
       expect(@resource[namevar]).to eq('f00')
       expect(@resource[:name]).to eq('f00')
     end
-    it "should accept names containing numbers" do
-      @resource = described_class.new(
-        namevar => 'host01')
-      expect(@resource[namevar]).to eq('host01')
-      expect(@resource[:name]).to eq('host01')
-    end
     it 'should reject invalid values' do
       expect{ described_class.new(
        namevar => '@#$%foooooo^!)')}.to raise_error(
