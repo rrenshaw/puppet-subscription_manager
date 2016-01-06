@@ -36,7 +36,6 @@ describe described_class, 'type' do
       end
       }
 
-
   context "for name" do
     namevar = :name
     it "should be a parameter" do
@@ -65,6 +64,16 @@ describe described_class, 'type' do
       expect{ described_class.new(
        namevar => '@#$%foooooo^!)')}.to raise_error(
         Puppet::ResourceError, /.*/)
+    end
+  end
+  
+  context "for hostname" do
+    namevar = :hostname
+    if 'should accept hostnames containing numbers' do
+      @resource = described_class(new
+        hostname => 'f00')
+      expect(@resource[namevar]).to eq('f00')
+      expect(@resource[:hostname]).to eq('f00')
     end
   end
 
